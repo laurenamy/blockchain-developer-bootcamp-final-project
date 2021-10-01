@@ -17,3 +17,11 @@ Workflow
 
 Questions
 - How would attendees prove their attendence to claim tokens?
+
+
+Second Iteration
+
+1. User creates a Pool of tokens
+  a. chooses the worth and finite number of tokens
+2. User adds admins to Pool
+3. User/admins send tokens to token recipients
