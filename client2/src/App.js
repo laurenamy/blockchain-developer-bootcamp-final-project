@@ -4,12 +4,13 @@ import { Button } from 'react-bootstrap'
 
 import { useWeb3 } from '@openzeppelin/network/react';
 
-const infuraProjectId = '95202223388e49f48b423ea50a70e336';
+const infuraProjectId = 'a9bdcdb2d94a4c8882b5ad5b591899ca';
 
 function App() {
 
-  const web3Context = useWeb3(`wss://mainnet.infura.io/ws/v3/${infuraProjectId}`);
-  const { networkId, networkName, providerName } = web3Context;
+  const web3Context = useWeb3(`wss://ropsten.infura.io/ws/v3/${infuraProjectId}`);
+  const { networkId, networkName, providerName } = web3Context; 
+  console.log({web3Context})
 
   return (
     <div className="App">
