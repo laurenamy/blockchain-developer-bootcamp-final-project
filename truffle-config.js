@@ -22,11 +22,11 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-const HDWallet = require('@truffle/hdwallet-provider');
-const dotenv = require('dotenv');
-dotenv.config();
-const mnemonic = process.env.MNEMONIC;
-const infuraProjectId = 'a9bdcdb2d94a4c8882b5ad5b591899ca';
+// const HDWallet = require('@truffle/hdwallet-provider');
+// const dotenv = require('dotenv');
+// dotenv.config();
+// const mnemonic = process.env.MNEMONIC;
+// const infuraProjectId = 'a9bdcdb2d94a4c8882b5ad5b591899ca';
 
 module.exports = {
   /**
