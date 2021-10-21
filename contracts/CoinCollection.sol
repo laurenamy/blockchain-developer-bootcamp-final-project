@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./Coin.sol";
 
 contract CoinCollection {
   address public admin;
   mapping (uint => address) collections;
   uint collectionCount;
-
+  address coinAddress;
   bool private initialized;
 
   // do I need a struct to store the ERC20 address?
@@ -31,16 +32,16 @@ contract CoinCollection {
     collectionCount = 0;
   }
 
-  function createCollection() public returns(uint)
+  function createCollection(address _coinAddress, uint numCoins, string memory tokenURI) public
   {
-    uint id = collectionCount;
     collections[collectionCount] = msg.sender;
+    Coin coin = Coin(_coinAddress);
+    coin.mintNFT(msg.sender, numCoins, tokenURI);
     emit CollectionCreated(collectionCount);
     collectionCount++;
-    return id;
   }
   
-//   function getCollection(uint id) onlyOwner(id) public returns() {
-//       return collections[id];
-//   }
+  // function getCollection(uint id) onlyOwner(id) public returns() {
+  //     return collections[id];
+  // }
 }
