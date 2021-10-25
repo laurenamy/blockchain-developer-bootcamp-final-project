@@ -22,11 +22,11 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-// const HDWallet = require('@truffle/hdwallet-provider');
-// const dotenv = require('dotenv');
-// dotenv.config();
-// const mnemonic = process.env.MNEMONIC;
-// const infuraProjectId = 'a9bdcdb2d94a4c8882b5ad5b591899ca';
+const HDWallet = require('@truffle/hdwallet-provider')
+require('dotenv').config()
+const mnemonic = process.env.MNEMONIC
+const infuraProjectId = 'a9bdcdb2d94a4c8882b5ad5b591899ca'
+
 
 module.exports = {
   /**
@@ -51,6 +51,14 @@ module.exports = {
      port: 8545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
+    matic: {
+      // url is from rpc.maticvigil.com
+      provider: () => new HDWallet(mnemonic, `https://rpc-mumbai.maticvigil.com/v1/eb3067db9c85a81781c107798cd72539cfc0922b`),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -63,12 +71,20 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     ropsten: {
-    provider: () => new HDWallet(mnemonic, `https://ropsten.infura.io/v3/${infuraProjectId}`),
-    network_id: 3,       // Ropsten's id
-    gas: 5500000,        // Ropsten has a lower block limit than mainnet
-    confirmations: 2,    // # of confs to wait between deployments. (default: 0)
-    timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
-    skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+      provider: () => 
+        new HDWallet({
+          mnemonic: {
+            phrase: mnemonic
+          }, 
+          providerOrUrl: 'https://ropsten.infura.io/v3/a9bdcdb2d94a4c8882b5ad5b591899ca',
+          numberOfAddresses: 1,
+          shareNonce: true,
+        }),
+        network_id: 3,       // Ropsten's id
+        gas: 5500000,        // Ropsten has a lower block limit than mainnet
+        confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+        timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+        skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
     },
     // Useful for private networks
     // private: {
