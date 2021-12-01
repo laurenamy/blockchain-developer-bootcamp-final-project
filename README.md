@@ -1,27 +1,18 @@
 # blockchain-developer-bootcamp-final-project
 
-Basic Description: 
-- Event based token creation and distribution
+## Project structure
 
-What would this be used for?
-- Exclusive access to commemorative items for
-  - game releases
-  - conference attendence
-  - weddings??? 
+- Project root contains the blockchain project itself and test directory. From here you are able to run ganache and truffle
+- `/client` directory contains the front end, a separate `npm i` will be necessary to run this
 
-Workflow
-- Event organizers use the platform to create ERC721 tokens to represent their event, potentially more granular sub-events (a particular talk at a conference, or an after party event)
-- Event attendees are given access to the pool of tokens and can claim their token with a key (??) determined by the organizers
-- These tokens are similar to commemorative coins specific to anniversary events or the like
-- Users can display their coins on a profile page
+## Getting started with Project - development
 
-Questions
-- How would attendees prove their attendence to claim tokens?
+1. Run `ganache-cli` in root directory
+2. Run `truffle migrate` in root directory
+3. Connect to Localhost8545 in metamask
+4. Add private key from ganache
+5. Run `npm start` in client directory
 
+## Public eth address
 
-Second Iteration
-
-1. User creates a Pool of tokens
-  a. chooses the worth and finite number of tokens
-2. User adds admins to Pool
-3. User/admins send tokens to token recipients
+0xBDB3053356e3c8DD8A143DAfcBa9AE57Bd8b01ba

@@ -1,7 +1,5 @@
-const CoinCollection = artifacts.require('CoinCollection')
-const Coin = artifacts.require('Coin')
+const CrowdFund = artifacts.require('CrowdFund')
 
 module.exports = function (deployer) {
-  deployer.deploy(CoinCollection)
-  deployer.deploy(Coin)
+  deployer.deploy(CrowdFund)
 }
