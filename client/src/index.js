@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom'
+import { MetaMaskProvider } from 'metamask-react'
 
 ReactDOM.render(
+  
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/2.14.1/react-datepicker.min.css" />
+    <MetaMaskProvider>
+      <Router>
+        <App />
+      </Router>
+    </MetaMaskProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
