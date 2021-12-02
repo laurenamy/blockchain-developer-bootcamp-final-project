@@ -1,0 +1,12 @@
+.hero {
+  color: white;
+  min-height: 50vh;
+}
+
+.title {
+  margin: 3rem 1rem 1rem;
+}
+
+.tagline {
+  padding: 4rem;
+}

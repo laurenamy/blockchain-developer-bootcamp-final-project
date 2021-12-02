@@ -13,7 +13,7 @@ function Header() {
     <header>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/">Forcible Donation Crowdfund</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Chaotic Good Crowdfund</Navbar.Brand>
           <Nav.Link as={Link} to="/">Home</Nav.Link>
           <Nav.Link as={Link} to="/create-fund">Create Fund</Nav.Link>
           {status === "notConnected" && (
