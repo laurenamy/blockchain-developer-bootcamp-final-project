@@ -1,6 +1,7 @@
 .hero {
   color: white;
-  min-height: 50vh;
+  min-height: 40vh;
+  margin-bottom: 4rem;
 }
 
 .title {
@@ -8,5 +9,10 @@
 }
 
 .tagline {
-  padding: 4rem;
+  margin: 3rem;
+  width: 80%;
+}
+
+.heroButton {
+  margin-left: 5rem;
 }

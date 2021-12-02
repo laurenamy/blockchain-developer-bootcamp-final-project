@@ -7,7 +7,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { MetaMaskProvider } from 'metamask-react'
 
 ReactDOM.render(
-  
   <React.StrictMode>
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/react-datepicker/2.14.1/react-datepicker.min.css" />
     <MetaMaskProvider>
