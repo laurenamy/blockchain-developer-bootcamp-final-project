@@ -3,13 +3,11 @@ import CrowdFund from '../../abi/Crowdfund'
 import Web3 from 'web3'
 import { Container, Row } from 'react-bootstrap'
 import { FundCard } from '..'
-
-
+import { DAPP_CONTRACT } from '../../constants/constants'
 
 const FundsList = () => {
   const web3 = new Web3(Web3.givenProvider)
-  const crowdFundAddress = '0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63'
-  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, crowdFundAddress)
+  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, DAPP_CONTRACT)
   const [funds, setFunds] = useState(null)
   const [loading, setLoading] = useState(false)
 

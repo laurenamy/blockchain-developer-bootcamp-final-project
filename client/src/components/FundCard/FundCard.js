@@ -6,6 +6,7 @@ import truncateEthAddress from 'truncate-eth-address'
 import { useMetaMask } from 'metamask-react'
 import Loader from 'react-loader-spinner'
 import styles from './FundCard.module.css'
+import { DAPP_CONTRACT } from '../../constants/constants'
 
 const getDateString = (timestamp) => {
   const date = new Date(timestamp)
@@ -14,8 +15,7 @@ const getDateString = (timestamp) => {
 
 const FundCard = ({fund}) => {
   const web3 = new Web3(Web3.givenProvider)
-  const crowdFundAddress = '0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63'
-  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, crowdFundAddress)
+  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, DAPP_CONTRACT)
   const { account } = useMetaMask()
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
@@ -57,12 +57,12 @@ const FundCard = ({fund}) => {
 
   return (
     <Col>
-      <Card key={+fund.id}>
+      <Card className={styles.fundCard} key={+fund.id}>
         <Card.Header as="h5"><Badge className={styles.activeBadge} bg={active ? "success" : "secondary"}>{active ? "Active" : "Closed"}</Badge>{fund.title}</Card.Header>
         <Card.Title className={styles.cardTitle}>{fund.description}</Card.Title>
         <Card.Body>
           {loading && (
-            <Loader type="audio" height="20" width="20" color="#1976D2" />
+            <Loader type="Audio" height="20" width="20" color="#1976D2" />
           )}
           {active && (
             <>

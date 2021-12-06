@@ -1,4 +1,4 @@
-const CHARITIES = [
+export const CHARITIES = [
   {
     name: 'The Water Project',
     address: '0x521b87308a2df0534cdaa947d586ebea6720d7fe'
@@ -9,4 +9,4 @@ const CHARITIES = [
   }
 ]
 
-export default CHARITIES
+export const DAPP_CONTRACT = '0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63'

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CrowdFund from '../../abi/Crowdfund'
 import Web3 from 'web3'
 import { Button, Alert, Container } from 'react-bootstrap'
-import { CHARITIES } from '../../constants'
+import { CHARITIES, DAPP_CONTRACT } from '../../constants/constants'
 import styles from './CreateFundForm.module.css'
 import DatePicker from 'react-datepicker'
 import { useMetaMask } from "metamask-react"
@@ -13,8 +13,7 @@ const CreateFundForm = () => {
   const web3 = new Web3(Web3.givenProvider)
   const { account } = useMetaMask()
   const navigate = useNavigate()
-  const crowdFundAddress = '0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63'
-  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, crowdFundAddress)
+  const CrowdFundContract = new web3.eth.Contract(CrowdFund.abi, DAPP_CONTRACT)
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -28,6 +27,7 @@ const CreateFundForm = () => {
   const onSubmit = async event => {
     event.preventDefault()
     setLoading(true)
+
     try {
       const args = [
         title,
@@ -72,7 +72,7 @@ const CreateFundForm = () => {
         )}
         <DatePicker
           selected={end}
-          onChange={(date) => setEnd(date)} 
+          onChange={(date) => setEnd(date.getTime())} 
           minDate={new Date().setDate(new Date().getDate() + 7)}
         />
         <form onSubmit={onSubmit}>
@@ -134,7 +134,7 @@ const CreateFundForm = () => {
           <br />
           <Button type="submit" value="Create" >Create</Button>
           {loading && (
-            <Loader type="audio" height="20" width="20" color="#1976D2" />
+            <Loader type="Audio" height="20" width="20" color="#1976D2" />
           )}
         </form>
         <br/>
