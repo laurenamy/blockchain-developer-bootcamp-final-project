@@ -31,6 +31,7 @@ contract('CrowdFund', accounts => {
       assert.equal(admin, contractAdmin)
     })
     it('should create a fund', async () => {
+      // checks the creation of a fund by monitoring the event logs
       const event = await crowdFundInstance.createFund(
         fundInfo.title,
         fundInfo.description,
@@ -44,6 +45,7 @@ contract('CrowdFund', accounts => {
       fundId = Number(event.logs[0].args[0])
     })
     it('should add eth to the contract', async () => {
+      // checks that the contract itself holds the eth
       const event = await crowdFundInstance.contribute(fundId, {
         from: contributor1,
         value: await web3.utils.toWei('2', 'ether')
@@ -54,10 +56,13 @@ contract('CrowdFund', accounts => {
       assert.equal(balance, web3.utils.toWei('2', 'ether'))
     })
     it('should add eth to the fund', async () => {
+      // checks that the fund tracks how much eth was submitted
       const fundBalance = await crowdFundInstance.checkFunding(fundId)
       assert.equal(fundBalance, web3.utils.toWei('2', 'ether'))
     })
     it('should distribute eth when fully funded', async () => {
+      // checks that the contract fully distributes the eth appropriately to the fund
+      // creator and the donation recipient
       const fundBalance1 = await crowdFundInstance.checkFunding(fundId)
       const donationBalance1 = await web3.eth.getBalance(donationAccount)
       const ownerBalance1 = await web3.eth.getBalance(fundOwner)

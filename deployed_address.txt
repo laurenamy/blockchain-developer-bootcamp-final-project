@@ -1,0 +1,2 @@
+network: ropsten
+address: 0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63
