@@ -22,7 +22,8 @@
 
 ## Using the project
 
-- Frontend interface is located https://blockchain-developer-bootcamp-final-project-laurenamy.vercel.app/
+- Frontend interface is located => https://blockchain-developer-bootcamp-final-project-laurenamy.vercel.app/
+- Screencast walkthrough => https://youtu.be/Q38jzZdGJ80
 
 ## Public eth address
 
