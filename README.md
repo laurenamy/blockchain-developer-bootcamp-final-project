@@ -18,6 +18,7 @@
 1. Clone github repo
 2. Run `npm i` within the root directory
 3. Run `ganache-cli`, should be running on port 8545
+4. With ganache running, run `npm test` in root directory
 
 ## Using the project
 

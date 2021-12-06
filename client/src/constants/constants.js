@@ -9,4 +9,4 @@ export const CHARITIES = [
   }
 ]
 
-export const DAPP_CONTRACT = '0x12CE4AcC77e1e9D38F41eE1584d54e9bB889CE63'
+export const DAPP_CONTRACT = '0xCcf846d24F1f9c19cc0Fa91867776759eefFA9c7'
